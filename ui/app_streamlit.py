@@ -80,6 +80,6 @@ def results_page():
         st.session_state.page = "questionnaire"
 
     if st.session_state.page == "questionnaire":
-    questionnaire_page()
+        questionnaire_page()
     elif st.session_state.page == "results":
-    results_page()
+        results_page()
