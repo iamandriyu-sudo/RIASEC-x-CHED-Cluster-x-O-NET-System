@@ -62,3 +62,24 @@ def results_page():
     st.write(f"**Dominant Interest Type:** {dominant}")
     st.write(f"**Secondary Interest Type:** {secondary}")
 
+    st.subheader("Recommended CHED Priority Program Clusters")
+
+    for cluster in clusters:
+        st.success(cluster)
+
+    st.subheader("Related Occupations (Based on O*NET)")
+
+    if not occupations.empty:
+        st.dataframe(
+            occupations[["Occupation", "Job Zone", "Interest Code"]].head(10)
+        )
+    else:
+        st.warning("No matching occupations found.")
+
+    if st.button("Go Back to Questionnaire"):
+        st.session_state.page = "questionnaire"
+
+    if st.session_state.page == "questionnaire":
+    questionnaire_page()
+    elif st.session_state.page == "results":
+    results_page()
