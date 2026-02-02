@@ -1,11 +1,5 @@
 import streamlit as st
 import pandas as pd
-import sys
-import os
-
-ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(_file_), ".."))
-if ROOT_DIR not in sys.path:
-    sys.path.append(ROOT_DIR)
 
 from logic.riasec_scoring import compute_riasec_scores
 from logic.dominance_logic import get_dominant_types
