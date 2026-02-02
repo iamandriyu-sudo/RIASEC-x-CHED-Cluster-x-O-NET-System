@@ -1,5 +1,10 @@
 import streamlit as st
 import pandas as pd
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 
 from logic.riasec_scoring import compute_riasec_scores
 from logic.dominance_logic import get_dominant_types
