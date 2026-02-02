@@ -42,19 +42,19 @@ def questionnaire_page():
 
     items = pd.read_csv("data/questionnaire_items.csv")
 
-    for _, row in items.iterrows():
-        st.session_state.responses[row["item_id"]] = st.radio(
-            row["item_text"],
-            options=[1, 2, 3, 4, 5],
-            horizontal=True,
-            key=f"q_{row['item_id']}"
-        )
+    with st.container(height=500):
+        for _, row in items.iterrows():
+            st.session_state.responses[row["item_id"]] = st.radio(
+                row["item_text"],
+                options=[1, 2, 3, 4, 5],
+                key=f"q_{row['item_id']}"
+            )
 
     st.markdown("---")
 
     if st.button("Submit Questionnaire"):
         st.session_state.page = "results"
-        st.rerun()   # FORCE refresh
+        st.rerun()
 
 
 # -----------------------------
